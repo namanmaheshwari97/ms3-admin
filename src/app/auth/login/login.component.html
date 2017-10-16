@@ -1,0 +1,19 @@
+<div class="login-wrapper">
+  <form class="login" novalidate (ngSubmit)="onSubmit(credentials)" [formGroup]="credentials">
+    <label class="title">
+      <h3 class="welcome">Welcome to</h3>
+      Madison Sublease Admin System
+      <h5 class="hint">Use your Company ID to sign in</h5>
+    </label>
+    <div class="login-group">
+      <input formControlName="email"
+             class="username" type="text" id="login_username" placeholder="E-mail">
+      <input formControlName="password"
+             class="password" type="password" id="login_password" placeholder="Password">
+      <div class="error" [ngClass]="{'active': loginError.active}">
+        {{ loginError.message }}
+      </div>
+      <button type="submit" class="btn btn-primary">NEXT</button>
+    </div>
+  </form>
+</div>
