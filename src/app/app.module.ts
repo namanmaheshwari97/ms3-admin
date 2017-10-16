@@ -1,10 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import {ClarityModule} from 'clarity-angular';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
-import {AppRoutingModule} from "./app.routing";
+import {StoreModule} from '@ngrx/store';
+import {ClarityModule} from 'clarity-angular';
+
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app.routing';
+
+import * as fromRoot from './_actions/reducers';
 
 @NgModule({
   declarations: [
@@ -13,12 +16,14 @@ import {AppRoutingModule} from "./app.routing";
   imports: [
     BrowserModule,
     ClarityModule.forRoot(),
+    StoreModule.forRoot(fromRoot.reducers),
     AppRoutingModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
+    {provide: APP_BASE_HREF, useValue: '/'},
   ],
   bootstrap: [AppComponent]
 
 })
-export class AppModule { }
+export class AppModule {
+}
