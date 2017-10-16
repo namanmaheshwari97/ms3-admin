@@ -5,7 +5,7 @@ export class RestApiRequest {
   private _request: RequestOptionsArgs;
 
   constructor(private _requestTemplate: RequestOptionsArgs) {
-    this._request = _requestTemplate;
+    this._request = Object.assign({}, _requestTemplate);
     this._request.url = environment.SERVER_URL + this._request.url;
     this._request.headers = new Headers();
   }
