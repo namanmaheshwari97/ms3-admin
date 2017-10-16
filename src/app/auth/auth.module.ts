@@ -6,6 +6,8 @@ import {SignOut} from './sign-out.effects';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './login/login.component';
 import {AuthEffects} from './auth.effects';
+import { AuthGuard } from './auth.guard';
+import { VisitorGuard } from './visitor.guard';
 
 @NgModule({
   imports: [
@@ -18,7 +20,8 @@ import {AuthEffects} from './auth.effects';
     ReactiveFormsModule
   ],
   declarations: [LoginComponent],
-  exports: [LoginComponent]
+  exports: [LoginComponent],
+  providers: [AuthGuard, VisitorGuard]
 })
 export class AuthModule {
 }
