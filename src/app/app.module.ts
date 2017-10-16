@@ -9,6 +9,7 @@ import {AppRoutingModule} from './app.routing';
 
 import * as fromRoot from './_actions/reducers';
 import {CoreModule} from './core/core.module';
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {CoreModule} from './core/core.module';
     BrowserModule,
     ClarityModule.forRoot(),
     StoreModule.forRoot(fromRoot.reducers),
+    EffectsModule.forRoot([]),
     AppRoutingModule,
     CoreModule
   ],
