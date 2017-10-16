@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {EffectsModule} from '@ngrx/effects';
 import {SignIn} from './sign-in.effects';
 import {SignOut} from './sign-out.effects';
+import {ReactiveFormsModule} from '@angular/forms';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   imports: [
@@ -10,9 +12,11 @@ import {SignOut} from './sign-out.effects';
     EffectsModule.forFeature([
       SignIn.Effects,
       SignOut.Effects
-    ])
+    ]),
+    ReactiveFormsModule
   ],
-  declarations: []
+  declarations: [LoginComponent],
+  exports: [LoginComponent]
 })
 export class AuthModule {
 }
