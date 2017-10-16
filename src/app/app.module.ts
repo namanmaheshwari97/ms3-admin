@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routing';
 
 import * as fromRoot from './_actions/reducers';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import * as fromRoot from './_actions/reducers';
     BrowserModule,
     ClarityModule.forRoot(),
     StoreModule.forRoot(fromRoot.reducers),
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
