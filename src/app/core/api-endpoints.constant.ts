@@ -9,4 +9,18 @@ export const API = {
       url: '/authenticate'
     }
   },
+  EMPLOYEES: {
+    QUERY: {
+      method: 'GET',
+      url: '/employees'
+    },
+    CREATE: {
+      method: 'POST',
+      url: '/employees'
+    },
+    DELETE: {
+      method: 'DELETE',
+      url: '/employees/${id}'
+    }
+  }
 };
