@@ -4,6 +4,7 @@ import {Actions, Effect} from '@ngrx/effects';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/observable/of';
 
 import {Auth} from '../_domains/auth';
 import {Credentials} from '../_domains/credentials';

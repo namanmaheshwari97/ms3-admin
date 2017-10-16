@@ -3,8 +3,9 @@ import {Action} from '@ngrx/store';
 import {Actions, Effect} from '@ngrx/effects';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/observable/of';
 
 import {API} from '../core/api-endpoints.constant';
 
