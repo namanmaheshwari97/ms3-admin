@@ -1,4 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../../_actions/reducers';
+import {Employees} from '../employees.effects';
+import {Employee} from '../../../_domains/employee';
 
 @Component({
   selector: 'app-employees-table',
@@ -33,22 +37,16 @@ export class EmployeesTableComponent implements OnInit {
     }
   };
 
-  data = [
-    {
-      id: 1,
-      email: 'Sincere@april.biz',
-      phoneNumber: '608-618-8342'
-    },
-    {
-      id: 2,
-      email: 'Shanna@melissa.tv',
-      phoneNumber: '608-618-8343'
-    }
-  ];
+  data: Employee[];
 
-  constructor() { }
+  constructor(private _store: Store<any>) {
+    this._store.select(fromRoot.selectEmployeesList).subscribe((list) => {
+      this.data = list;
+    })
+  }
 
   ngOnInit() {
+    this._store.dispatch(new Employees.Request());
   }
 
 }

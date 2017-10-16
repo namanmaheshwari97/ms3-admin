@@ -12,7 +12,7 @@ import {RestApiService} from '../../core/rest-api.service';
 import {RestApiRequest} from '../../core/rest-api-request';
 import * as EmployeesActions from '../../_actions/employees.actions';
 import * as AlertActions from '../../_actions/alert.actions';
-import {EmployeesTable} from '../../_domains/employees-table';
+import {Employee} from '../../_domains/employee';
 
 export namespace Employees {
   export const REQUEST = 'EmployeesEffects.REQUEST';
@@ -26,7 +26,7 @@ export namespace Employees {
   export class Success implements Action {
     readonly type = SUCCESS;
 
-    constructor(public payload: EmployeesTable) {
+    constructor(public payload: Employee[]) {
     }
   }
 
