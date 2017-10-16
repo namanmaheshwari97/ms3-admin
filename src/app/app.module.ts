@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {ClarityModule} from 'clarity-angular';
+import {APP_BASE_HREF} from '@angular/common';
+import {AppRoutingModule} from "./app.routing";
 
 @NgModule({
   declarations: [
@@ -10,9 +12,13 @@ import {ClarityModule} from 'clarity-angular';
   ],
   imports: [
     BrowserModule,
-    ClarityModule.forRoot()
+    ClarityModule.forRoot(),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+  ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
