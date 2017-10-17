@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
@@ -46,14 +46,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit({value, valid}: { value: Credentials, valid: boolean }) {
     if (valid) {
-      if (value.email == 'admin') {
-        this._store.dispatch(new AuthActions.Set({
-          token: value.password,
-          email: value.email
-        }));
-      } else {
-        this._store.dispatch(new SignIn.Request(value));
-      }
+      this._store.dispatch(new SignIn.Request(value));
     }
   }
 }
