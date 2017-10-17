@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+  <section class="form-block">
+    <label>Add E-mail to Blacklist</label>
+    <div class="form-group">
+      <label for="emailEmail">E-mail</label>
+      <label for="emailEmail"
+             aria-haspopup="true"
+             role="tooltip"
+             class="tooltip tooltip-validation tooltip-sm"
+             [class.invalid]="emailForm.get('email').invalid
+                    && (emailForm.get('email').dirty || emailForm.get('email').touched)">
+        <input id="emailEmail" type="text"
+               formControlName="email">
+        <span class="tooltip-content">
+                    E-mail is required.
+                </span>
+      </label>
+    </div>
+    <button class="btn btn-primary"
+            type="submit"
+            [disabled]="emailForm.invalid">Add</button>
+  </section>
+</form>
