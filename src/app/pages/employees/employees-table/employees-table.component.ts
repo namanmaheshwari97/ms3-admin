@@ -3,6 +3,7 @@ import {Store} from '@ngrx/store';
 import * as fromRoot from '../../../_actions/reducers';
 import {Employees} from '../employees.effects';
 import {Employee} from '../../../_domains/employee';
+import {EmployeesRemove} from '../employees-remove.effects';
 
 @Component({
   selector: 'app-employees-table',
@@ -17,6 +18,7 @@ export class EmployeesTableComponent implements OnInit {
     actions: {
       edit: false
     },
+    mode: 'external',
     hideSubHeader: true,
     columns: {
       id: {
@@ -49,4 +51,7 @@ export class EmployeesTableComponent implements OnInit {
     this._store.dispatch(new Employees.Request());
   }
 
+  onDelete(event) {
+    this._store.dispatch(new EmployeesRemove.Request(event.data.id));
+  }
 }
