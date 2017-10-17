@@ -4,6 +4,8 @@ import * as fromRoot from '../../../_actions/reducers';
 import {EmailItem} from '../../../_domains/email-item';
 import {EmailBlacklist} from '../email-blacklist.effects';
 import {EmailBlacklistRemove} from '../email-blacklist-remove.effects';
+import {EmailForm} from '../../../_domains/email-form';
+import {EmailBlacklistAdd} from '../email-blacklist-add.effects';
 
 @Component({
   selector: 'app-email-blacklist-table',
@@ -44,6 +46,10 @@ export class EmailBlacklistTableComponent implements OnInit {
 
   ngOnInit() {
     this._store.dispatch(new EmailBlacklist.Request());
+  }
+
+  onCreate(form: EmailForm) {
+    this._store.dispatch(new EmailBlacklistAdd.Request(form))
   }
 
   onDelete(event) {
