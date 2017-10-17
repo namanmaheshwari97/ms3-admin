@@ -22,5 +22,15 @@ export const API = {
       method: 'DELETE',
       url: '/employees/${id}'
     }
+  },
+  USERS: {
+    QUERY: {
+      method: 'GET',
+      url: '/users'
+    },
+    DELETE: {
+      method: 'DELETE',
+      url: '/users/${id}'
+    }
   }
 };
