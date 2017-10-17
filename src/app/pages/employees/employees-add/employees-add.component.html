@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+<form class="form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
   <section class="form-block">
     <label>Add Employee Address</label>
     <div class="form-group">
@@ -46,6 +46,6 @@
     <button class="btn btn-primary"
             type="submit"
             [disabled]="employeeForm.invalid">Add</button>
-    <button class="btn btn-warning-outline" routerLink="../">Cancel</button>
+    <a routerLink="../">Back to Employee Table</a>
   </section>
 </form>
