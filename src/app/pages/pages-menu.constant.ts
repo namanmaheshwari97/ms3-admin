@@ -11,4 +11,8 @@ export const PAGES_MENU_ITEMS = [
     title: 'Employees',
     link: '/pages/employees'
   },
+  {
+    title: 'Blacklist',
+    link: '/pages/blacklist'
+  }
 ];
