@@ -15,6 +15,9 @@ const routes: Routes = [{
     path: 'employees',
     loadChildren: './employees/employees.module#EmployeesModule',
   }, {
+    path: 'blacklist',
+    loadChildren: './email-blacklist/email-blacklist.module#EmailBlacklistModule',
+  }, {
     path: '',
     redirectTo: 'users',
     pathMatch: 'full',
