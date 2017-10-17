@@ -14,6 +14,7 @@ export class EmailBlacklistTableComponent implements OnInit {
       edit: false
     },
     mode: 'external',
+    hideSubHeader: true,
     columns: {
       id: {
         title: 'ID',
