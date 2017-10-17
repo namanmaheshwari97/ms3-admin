@@ -1,5 +1,6 @@
 import {Action} from '@ngrx/store';
 import {EmployeesTable} from '../_domains/employees-table';
+import {Employee} from '../_domains/employee';
 
 export const SET = 'Employees.Set';
 export const REMOVE_ITEM = 'Employees.RemoveItem';
@@ -7,7 +8,7 @@ export const REMOVE_ITEM = 'Employees.RemoveItem';
 export class Set implements Action {
   readonly type = SET;
 
-  constructor(public payload: EmployeesTable) {
+  constructor(public payload: Employee[]) {
   }
 }
 

@@ -9,9 +9,12 @@ const initialState = {
 };
 
 export function reducer(state: EmployeesTable = initialState, action: Action): EmployeesTable {
-  switch(action.type) {
+  switch (action.type) {
     case EmployeesActions.SET: {
-      return action.payload;
+      return {
+        ...state,
+        list: action.payload
+      }
     }
 
     case EmployeesActions.REMOVE_ITEM: {
