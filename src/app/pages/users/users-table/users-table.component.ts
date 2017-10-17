@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as fromRoot from '../../../_actions/reducers';
+import {Users} from '../users.effects';
+import {UsersRemove} from '../users-remove.effects';
+import {User} from '../../../_domains/user';
 
 @Component({
   selector: 'app-users-table',
@@ -34,35 +39,19 @@ export class UsersTableComponent implements OnInit {
     }
   };
 
-  data = [
-    {
-      id: 1,
-      email: 'user1@wisc.edu',
-      phoneNumber: null
-    },
-    {
-      id: 2,
-      email: 'user2@wisc.edu',
-      phoneNumber: '608-123-1234'
-    },
-    {
-      id: 3,
-      email: 'user3@wisc.edu',
-      phoneNumber: '608-234-2345'
-    },
-    {
-      id: 4,
-      email: 'user4@wisc.edu',
-      phoneNumber: '608-345-3456'
-    }
-  ];
+  data: User[];
 
-  constructor() {
+  constructor(private _store: Store<any>) {
+    this._store.select(fromRoot.selectUsersList).subscribe((list) => {
+      this.data = list;
+    })
   }
 
   ngOnInit() {
+    this._store.dispatch(new Users.Request());
   }
 
   onDelete(event) {
+    this._store.dispatch(new UsersRemove.Request(event.data.id));
   }
 }
