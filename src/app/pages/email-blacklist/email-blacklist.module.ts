@@ -5,8 +5,11 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {EmailBlacklistComponent} from './email-blacklist.component';
 import {EmailBlacklistTableComponent} from './email-blacklist-table/email-blacklist-table.component';
 import {EmailBlacklistRoutingModule} from './email-blacklist.routing';
-import { EmailBlacklistFormComponent } from './email-blacklist-form/email-blacklist-form.component';
+import {EmailBlacklistFormComponent} from './email-blacklist-form/email-blacklist-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {EmailBlacklist} from './email-blacklist.effects';
+import {EmailBlacklistAdd} from './email-blacklist-add.effects';
+import {EmailBlacklistRemove} from "./email-blacklist-remove.effects";
 
 @NgModule({
   imports: [
@@ -14,7 +17,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     EmailBlacklistRoutingModule,
     Ng2SmartTableModule,
-    EffectsModule.forFeature([])
+    EffectsModule.forFeature([
+      EmailBlacklist.Effects,
+      EmailBlacklistAdd.Effects,
+      EmailBlacklistRemove.Effects
+    ])
   ],
   declarations: [EmailBlacklistComponent, EmailBlacklistTableComponent, EmailBlacklistFormComponent]
 })

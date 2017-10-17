@@ -32,5 +32,19 @@ export const API = {
       method: 'DELETE',
       url: '/users/${id}'
     }
+  },
+  BLACKLIST: {
+    QUERY: {
+      method: 'GET',
+      url: '/blacklist'
+    },
+    CREATE: {
+      method: 'POST',
+      url: '/blacklist'
+    },
+    DELETE: {
+      method: 'DELETE',
+      url: '/blacklist/${id}'
+    }
   }
 };
