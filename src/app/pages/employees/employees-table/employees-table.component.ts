@@ -44,7 +44,7 @@ export class EmployeesTableComponent implements OnInit {
   constructor(private _store: Store<any>) {
     this._store.select(fromRoot.selectEmployeesList).subscribe((list) => {
       this.data = list;
-    })
+    });
   }
 
   ngOnInit() {

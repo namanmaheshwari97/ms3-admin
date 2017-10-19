@@ -39,7 +39,7 @@ export namespace Users {
     @Effect() onRequest$: Observable<Action> = this.actions$
       .ofType(REQUEST)
       .switchMap(() => {
-        let request = new RestApiRequest(API.USERS.QUERY);
+        const request = new RestApiRequest(API.USERS.QUERY);
 
         return this._api.send(request)
           .map(response => new Success(response))

@@ -49,7 +49,7 @@ export class EmailBlacklistTableComponent implements OnInit {
   }
 
   onCreate(form: EmailForm) {
-    this._store.dispatch(new EmailBlacklistAdd.Request(form))
+    this._store.dispatch(new EmailBlacklistAdd.Request(form));
   }
 
   onDelete(event) {

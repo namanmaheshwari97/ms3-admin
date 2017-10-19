@@ -9,7 +9,7 @@ import {EmailBlacklistFormComponent} from './email-blacklist-form/email-blacklis
 import {ReactiveFormsModule} from '@angular/forms';
 import {EmailBlacklist} from './email-blacklist.effects';
 import {EmailBlacklistAdd} from './email-blacklist-add.effects';
-import {EmailBlacklistRemove} from "./email-blacklist-remove.effects";
+import {EmailBlacklistRemove} from './email-blacklist-remove.effects';
 
 @NgModule({
   imports: [

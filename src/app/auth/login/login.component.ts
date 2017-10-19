@@ -6,7 +6,6 @@ import {Observable} from 'rxjs/Observable';
 import {Alert, ALERT_TYPE} from '../../_domains/alert';
 import {Credentials} from '../../_domains/credentials';
 import * as fromRoot from '../../_actions/reducers';
-import * as AuthActions from '../../_actions/auth.actions';
 import {SignIn} from '../sign-in.effects';
 
 @Component({
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.alert$.subscribe((alert) => {
-      if (ALERT_TYPE.ERROR == alert.type) {
+      if (ALERT_TYPE.ERROR === alert.type) {
         this.loginError = {
           active: true,
           message: alert.message
@@ -38,7 +37,7 @@ export class LoginComponent implements OnInit {
           message: null
         };
       }
-    })
+    });
   }
 
   ngOnInit() {

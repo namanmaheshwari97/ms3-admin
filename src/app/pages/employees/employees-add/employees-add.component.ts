@@ -25,6 +25,6 @@ export class EmployeesAddComponent implements OnInit {
 
   onSubmit() {
 
-    this._store.dispatch(new EmployeesAdd.Request(this.employeeForm.value))
+    this._store.dispatch(new EmployeesAdd.Request(this.employeeForm.value));
   }
 }

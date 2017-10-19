@@ -6,9 +6,16 @@ import {Headers, HttpModule, XHRBackend, Request, Response, ResponseOptions} fro
 import {MockBackend, MockConnection} from '@angular/http/testing';
 import {HttpStatus} from './http-status.enum';
 import {API} from './api-endpoints.constant';
-import 'rxjs/add/Observable/of';
+import {Observable} from 'rxjs/Observable';
+import {Store} from '@ngrx/store';
+import 'rxjs/add/observable/of';
 
 describe('RestApiService', () => {
+  class MockStore {
+    select(param: any) {
+      return Observable.of(null);
+    }
+  }
   let testRequest: RestApiRequest;
   let testCredentials;
 
@@ -28,6 +35,7 @@ describe('RestApiService', () => {
       ],
       providers: [
         {provide: XHRBackend, useClass: MockBackend},
+        {provide: Store, useClass: MockStore},
         RestApiService
       ]
     });

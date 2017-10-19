@@ -14,13 +14,13 @@ export function reducer(state: EmployeesTable = initialState, action: Action): E
       return {
         ...state,
         list: action.payload
-      }
+      };
     }
 
     case EmployeesActions.REMOVE_ITEM: {
       return {
         ...state,
-        list: state.list.filter((item: Employee) => action.payload != item.id)
+        list: state.list.filter((item: Employee) => action.payload !== item.id)
       };
     }
 
