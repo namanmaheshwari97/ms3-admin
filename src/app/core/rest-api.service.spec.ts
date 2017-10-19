@@ -6,7 +6,7 @@ import {Headers, HttpModule, XHRBackend, Request, Response, ResponseOptions} fro
 import {MockBackend, MockConnection} from '@angular/http/testing';
 import {HttpStatus} from './http-status.enum';
 import {API} from './api-endpoints.constant';
-import 'rxjs/add/Observable/of';
+import 'rxjs/add/observable/of';
 
 describe('RestApiService', () => {
   let testRequest: RestApiRequest;
