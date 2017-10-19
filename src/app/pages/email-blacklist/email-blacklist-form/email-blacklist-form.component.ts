@@ -16,7 +16,7 @@ export class EmailBlacklistFormComponent implements OnInit {
 
     this.emailForm = this._fb.group({
       email: ['', Validators.required]
-    })
+    });
   }
 
   ngOnInit() {

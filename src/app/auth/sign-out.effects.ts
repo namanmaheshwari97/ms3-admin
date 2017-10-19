@@ -36,7 +36,7 @@ export namespace SignOut {
     @Effect() onRequest$: Observable<Action> = this.actions$
       .ofType(REQUEST)
       .switchMap(() => {
-        let request = new RestApiRequest(API.AUTH.SIGN_OUT);
+        const request = new RestApiRequest(API.AUTH.SIGN_OUT);
 
         return this._api.send(request)
           .map(response => new Success())

@@ -42,7 +42,7 @@ export namespace UsersRemove {
       .ofType(REQUEST)
       .map((action: Request) => action.payload)
       .switchMap((payload) => {
-        let request = new RestApiRequest(API.USERS.DELETE);
+        const request = new RestApiRequest(API.USERS.DELETE);
         request.setPathParams({id: payload});
 
         return this._api.send(request)

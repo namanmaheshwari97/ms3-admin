@@ -14,7 +14,7 @@ export function reducer(state: EmailBlacklist = initialState, action: Action): E
       return {
         ...state,
         list: action.payload
-      }
+      };
     }
 
     case EmailBlacklistActions.ADD_ITEM: {
@@ -27,7 +27,7 @@ export function reducer(state: EmailBlacklist = initialState, action: Action): E
     case EmailBlacklistActions.REMOVE_ITEM: {
       return {
         ...state,
-        list: state.list.filter((item: EmailItem) => action.payload != item.id)
+        list: state.list.filter((item: EmailItem) => action.payload !== item.id)
       };
     }
 

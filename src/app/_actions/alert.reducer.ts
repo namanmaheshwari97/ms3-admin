@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export function reducer(state: Alert = initialState, action: Action): Alert {
-  switch(action.type) {
+  switch (action.type) {
     case AlertActions.SET_INFO: {
       return {
         type: ALERT_TYPE.INFO,
@@ -25,7 +25,7 @@ export function reducer(state: Alert = initialState, action: Action): Alert {
     }
 
     case AlertActions.CLEAR: {
-      return initialState
+      return initialState;
     }
 
     default: {

@@ -44,7 +44,7 @@ export class UsersTableComponent implements OnInit {
   constructor(private _store: Store<any>) {
     this._store.select(fromRoot.selectUsersList).subscribe((list) => {
       this.data = list;
-    })
+    });
   }
 
   ngOnInit() {

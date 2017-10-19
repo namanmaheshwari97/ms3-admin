@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.alert$.subscribe((alert) => {
-      if (ALERT_TYPE.ERROR == alert.type) {
+      if (ALERT_TYPE.ERROR === alert.type) {
         this.loginError = {
           active: true,
           message: alert.message
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           message: null
         };
       }
-    })
+    });
   }
 
   ngOnInit() {

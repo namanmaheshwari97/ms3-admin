@@ -10,7 +10,7 @@ import {API} from '../../core/api-endpoints.constant';
 
 import {RestApiService} from '../../core/rest-api.service';
 import {RestApiRequest} from '../../core/rest-api-request';
-import {EmailItem} from "../../_domains/email-item";
+import {EmailItem} from '../../_domains/email-item';
 import * as EmailBlacklistActions from '../../_actions/email-blacklist.actions';
 import * as AlertActions from '../../_actions/alert.actions';
 
@@ -39,7 +39,7 @@ export namespace EmailBlacklist {
     @Effect() onRequest$: Observable<Action> = this.actions$
       .ofType(REQUEST)
       .switchMap(() => {
-        let request = new RestApiRequest(API.BLACKLIST.QUERY);
+        const request = new RestApiRequest(API.BLACKLIST.QUERY);
 
         return this._api.send(request)
           .map(response => new Success(response))
