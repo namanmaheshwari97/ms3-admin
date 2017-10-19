@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailBlacklistTableComponent } from './email-blacklist-table.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('EmailBlacklistTableComponent', () => {
   let component: EmailBlacklistTableComponent;
@@ -8,6 +9,7 @@ describe('EmailBlacklistTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [ EmailBlacklistTableComponent ]
     })
     .compileComponents();

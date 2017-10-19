@@ -6,7 +6,6 @@ import {Observable} from 'rxjs/Observable';
 import {Alert, ALERT_TYPE} from '../../_domains/alert';
 import {Credentials} from '../../_domains/credentials';
 import * as fromRoot from '../../_actions/reducers';
-import * as AuthActions from '../../_actions/auth.actions';
 import {SignIn} from '../sign-in.effects';
 
 @Component({
