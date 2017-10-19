@@ -39,8 +39,8 @@ export namespace EmployeesAdd {
       .ofType(REQUEST)
       .map((action: Request) => action.payload)
       .switchMap((payload) => {
-        let request = new RestApiRequest(API.EMPLOYEES.CREATE);
-        request.setBody(payload)
+        const request = new RestApiRequest(API.EMPLOYEES.CREATE);
+        request.setBody(payload);
 
         return this._api.send(request)
           .map(response => new Success())

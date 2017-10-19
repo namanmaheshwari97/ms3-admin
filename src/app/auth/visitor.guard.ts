@@ -12,7 +12,7 @@ export class VisitorGuard implements CanActivate {
       .subscribe((token) => {
         console.log(token);
         this._token = token;
-      })
+      });
   }
 
   canActivate(
@@ -21,7 +21,8 @@ export class VisitorGuard implements CanActivate {
     if (this._token != null) {
       this._router.navigate(['/pages']);
       return false;
+    } else {
+      return true;
     }
-    else return true;
   }
 }

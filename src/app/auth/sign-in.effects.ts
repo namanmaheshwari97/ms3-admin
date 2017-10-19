@@ -44,7 +44,7 @@ export namespace SignIn {
       .ofType(REQUEST)
       .map((action: Request) => action.payload)
       .switchMap((payload) => {
-        let request = new RestApiRequest(API.AUTH.SIGN_IN);
+        const request = new RestApiRequest(API.AUTH.SIGN_IN);
         request.setBody(payload);
 
         return this._api.send(request)

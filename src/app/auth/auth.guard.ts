@@ -10,16 +10,16 @@ export class AuthGuard implements CanLoad {
   constructor(private _store: Store<any>, private _router: Router) {
     this._store.select(fromRoot.selectAuthToken)
       .subscribe((token) => {
-        console.log(token);
         this._token = token;
-      })
+      });
   }
 
   canLoad(route: Route): Observable<boolean>|Promise<boolean>|boolean {
     if (this._token == null) {
       this._router.navigate(['/login']);
       return false;
+    } else {
+      return true;
     }
-    else return true;
   }
 }

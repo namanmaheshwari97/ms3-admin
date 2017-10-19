@@ -42,7 +42,7 @@ export namespace EmailBlacklistRemove {
       .ofType(REQUEST)
       .map((action: Request) => action.payload)
       .switchMap((payload) => {
-        let request = new RestApiRequest(API.BLACKLIST.DELETE);
+        const request = new RestApiRequest(API.BLACKLIST.DELETE);
         request.setPathParams({id: payload});
 
         return this._api.send(request)

@@ -11,11 +11,11 @@ import * as fromUsers from './users.reducer';
 import * as fromBlacklist from './email-blacklist.reducer';
 
 export interface AppState {
-  auth: Auth,
-  alert: Alert,
-  employees: EmployeesTable,
-  users: UsersState,
-  blacklist: EmailBlacklist
+  auth: Auth;
+  alert: Alert;
+  employees: EmployeesTable;
+  users: UsersState;
+  blacklist: EmailBlacklist;
 }
 
 export const selectAuth = (state: AppState) => state.auth;
