@@ -17,6 +17,14 @@ export function reducer(state: UsersState = initialState, action: Action): Users
       };
     }
 
+    case UsersActions.UPDATE_ITEM: {
+      return {
+        ...state,
+        list: state.list.map((item: User) =>
+          item.id === action.payload.id ? action.payload : item)
+      };
+    }
+
     case UsersActions.REMOVE_ITEM: {
       return {
         ...state,

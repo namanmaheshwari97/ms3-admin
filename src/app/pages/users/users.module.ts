@@ -7,6 +7,7 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {EffectsModule} from '@ngrx/effects';
 import {Users} from './users.effects';
 import {UsersRemove} from './users-remove.effects';
+import {UsersActivate} from './users-activate.effects';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {UsersRemove} from './users-remove.effects';
     Ng2SmartTableModule,
     EffectsModule.forFeature([
       Users.Effects,
+      UsersActivate.Effects,
       UsersRemove.Effects
     ])
   ],
