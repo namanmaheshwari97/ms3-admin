@@ -32,7 +32,6 @@ export class AlertBarComponent implements OnInit {
   }
 
   private getAlertClass(type: ALERT_TYPE) {
-    console.log(type);
     switch (type) {
       case ALERT_TYPE.INFO:
         return 'alert-info';
