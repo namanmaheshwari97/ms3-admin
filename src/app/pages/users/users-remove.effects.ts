@@ -12,6 +12,7 @@ import {RestApiService} from '../../core/rest-api.service';
 import {RestApiRequest} from '../../core/rest-api-request';
 import * as AlertActions from '../../_actions/alert.actions';
 import * as UsersActions from '../../_actions/users.actions';
+import {User} from '../../_domains/user';
 
 export namespace UsersRemove {
   export const REQUEST = 'UsersRemoveEffects.REQUEST';
@@ -28,7 +29,7 @@ export namespace UsersRemove {
   export class Success implements Action {
     readonly type = SUCCESS;
 
-    constructor(public payload: number) {
+    constructor(public payload: User) {
     }
   }
 
@@ -46,14 +47,14 @@ export namespace UsersRemove {
         request.setPathParams({id: payload});
 
         return this._api.send(request)
-          .map(response => new Success(response.id))
+          .map(response => new Success(response))
           .catch(error => Observable.of(new Error()));
       });
 
     @Effect() onSuccess$: Observable<Action> = this.actions$
       .ofType(SUCCESS)
       .map((action: Success) => action.payload)
-      .map((id) => new UsersActions.RemoveItem(id));
+      .map((payload) => new UsersActions.UpdateItem(payload));
 
     @Effect() onError$: Observable<Action> = this.actions$
       .ofType(ERROR)
