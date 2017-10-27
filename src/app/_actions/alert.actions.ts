@@ -1,7 +1,7 @@
 import {Action} from '@ngrx/store';
 
 export const SET_INFO = 'Alert.Set';
-export const SET_ERROR = 'Alert.Set';
+export const SET_ERROR = 'Alert.Error';
 export const CLEAR = 'Alert.Clear';
 
 export class SetInfo implements Action {
