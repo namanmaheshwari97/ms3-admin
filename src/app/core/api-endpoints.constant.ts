@@ -31,6 +31,10 @@ export const API = {
     DELETE: {
       method: 'DELETE',
       url: '/users/${id}'
+    },
+    ACTIVATE: {
+      method: 'PUT',
+      url: '/users/${id}/activate'
     }
   },
   BLACKLIST: {
