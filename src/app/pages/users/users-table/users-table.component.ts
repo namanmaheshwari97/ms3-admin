@@ -4,6 +4,7 @@ import * as fromRoot from '../../../_actions/reducers';
 import {Users} from '../users.effects';
 import {UsersRemove} from '../users-remove.effects';
 import {User} from '../../../_domains/user';
+import {UsersActivate} from '../users-activate.effects';
 
 @Component({
   selector: 'app-users-table',
@@ -15,8 +16,8 @@ export class UsersTableComponent implements OnInit {
     attr: {
       class: 'table'
     },
-    actions: {
-      edit: false
+    edit: {
+      editButtonContent: 'Activate'
     },
     mode: 'external',
     hideSubHeader: true,
@@ -53,5 +54,9 @@ export class UsersTableComponent implements OnInit {
 
   onDelete(event) {
     this._store.dispatch(new UsersRemove.Request(event.data.id));
+  }
+
+  onActivate(event) {
+    this._store.dispatch(new UsersActivate.Request(event.data.id));
   }
 }
