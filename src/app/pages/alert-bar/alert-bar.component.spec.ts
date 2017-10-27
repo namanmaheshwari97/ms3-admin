@@ -1,9 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AlertBarComponent } from './alert-bar.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+
+import {AlertBarComponent} from './alert-bar.component';
 
 describe('AlertBarComponent', () => {
+  class MockStore {
+    select(param: any) {
+      return Observable.of('token');
+    }
+
+    dispatch(param: any) {
+    }
+  }
   let component: AlertBarComponent;
   let fixture: ComponentFixture<AlertBarComponent>;
 
@@ -12,9 +22,12 @@ describe('AlertBarComponent', () => {
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
-      declarations: [ AlertBarComponent ]
+      providers: [
+        {provide: Store, useClass: MockStore}
+      ],
+      declarations: [AlertBarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
