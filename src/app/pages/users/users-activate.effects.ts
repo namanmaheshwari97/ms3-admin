@@ -14,9 +14,9 @@ import * as AlertActions from '../../_actions/alert.actions';
 import {User} from '../../_domains/user';
 
 export namespace UsersActivate {
-  export const REQUEST = 'UsersEffects.REQUEST';
-  export const SUCCESS = 'UsersEffects.SUCCESS';
-  export const ERROR = 'UsersEffects.ERROR';
+  export const REQUEST = 'UsersActivateEffects.REQUEST';
+  export const SUCCESS = 'UsersActivateEffects.SUCCESS';
+  export const ERROR = 'UsersActivateEffects.ERROR';
 
   export class Request implements Action {
     readonly type = REQUEST;
