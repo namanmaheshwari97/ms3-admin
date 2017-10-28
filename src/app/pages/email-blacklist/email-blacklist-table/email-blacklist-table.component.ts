@@ -13,46 +13,25 @@ import {EmailBlacklistAdd} from '../email-blacklist-add.effects';
   styleUrls: ['./email-blacklist-table.component.scss']
 })
 export class EmailBlacklistTableComponent implements OnInit {
-  settings = {
-    attr: {
-      class: 'table'
-    },
-    actions: {
-      edit: false
-    },
-    mode: 'external',
-    hideSubHeader: true,
-    columns: {
-      id: {
-        title: 'ID',
-        sort: false,
-        filter: false
-      },
-      email: {
-        title: 'Email',
-        sort: false,
-        filter: false
-      }
-    }
-  };
-
-  data: EmailItem[];
+  blacklist: EmailItem[];
 
   constructor(private _store: Store<any>) {
-    this._store.select(fromRoot.selectBlacklistList).subscribe((list) => {
-      this.data = list;
-    });
+
+    this._store.select(fromRoot.selectBlacklistList).subscribe((list) => this.blacklist = list);
   }
 
   ngOnInit() {
+
     this._store.dispatch(new EmailBlacklist.Request());
   }
 
   onCreate(form: EmailForm) {
+
     this._store.dispatch(new EmailBlacklistAdd.Request(form));
   }
 
-  onDelete(event) {
-    this._store.dispatch(new EmailBlacklistRemove.Request(event.data.id));
+  onDelete(email) {
+
+    this._store.dispatch(new EmailBlacklistRemove.Request(email.id));
   }
 }

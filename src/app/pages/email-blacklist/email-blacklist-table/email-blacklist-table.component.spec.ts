@@ -9,7 +9,12 @@ import 'rxjs/add/observable/of';
 describe('EmailBlacklistTableComponent', () => {
   class MockStore {
     select(param: any) {
-      return Observable.of('token');
+      return Observable.of([
+        {
+          id: 1,
+          email: 'blacklist@email.com'
+        }
+      ]);
     }
     dispatch(param: any) {
     }
