@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
+import {User} from '../../../_domains/user';
 import * as fromRoot from '../../../_actions/reducers';
 import {Users} from '../users.effects';
+import {UsersActivate} from '../users-activate.effects';
 import {UsersRemove} from '../users-remove.effects';
-import {User} from '../../../_domains/user';
 
 @Component({
   selector: 'app-users-table',
@@ -11,47 +12,25 @@ import {User} from '../../../_domains/user';
   styleUrls: ['./users-table.component.scss']
 })
 export class UsersTableComponent implements OnInit {
-  settings = {
-    attr: {
-      class: 'table'
-    },
-    actions: {
-      edit: false
-    },
-    mode: 'external',
-    hideSubHeader: true,
-    columns: {
-      id: {
-        title: 'ID',
-        sort: false,
-        filter: false
-      },
-      email: {
-        title: 'Email',
-        sort: false,
-        filter: false
-      },
-      phoneNumber: {
-        title: 'Phone Number',
-        sort: false,
-        filter: false
-      }
-    }
-  };
-
-  data: User[];
+  users: User[];
 
   constructor(private _store: Store<any>) {
-    this._store.select(fromRoot.selectUsersList).subscribe((list) => {
-      this.data = list;
-    });
+
+    this._store.select(fromRoot.selectUsersList).subscribe((list) => this.users = list);
   }
 
   ngOnInit() {
+
     this._store.dispatch(new Users.Request());
   }
 
-  onDelete(event) {
-    this._store.dispatch(new UsersRemove.Request(event.data.id));
+  onDelete(user) {
+
+    this._store.dispatch(new UsersRemove.Request(user.id));
+  }
+
+  onActivate(user) {
+
+    this._store.dispatch(new UsersActivate.Request(user.id));
   }
 }

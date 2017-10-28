@@ -1,2 +1,17 @@
 <button class="btn" routerLink="./add">Add Employee</button>
-<ng2-smart-table *ngIf="data" [settings]="settings" [source]="data" (delete)="onDelete($event)"></ng2-smart-table>
+<clr-datagrid>
+  <clr-dg-column>UID</clr-dg-column>
+  <clr-dg-column>E-mail</clr-dg-column>
+  <clr-dg-column>Phone Number</clr-dg-column>
+
+  <clr-dg-row *ngFor="let employee of employees">
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onDelete(employee)">Deactivate</button>
+    </clr-dg-action-overflow>
+    <clr-dg-cell>{{employee.id}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.email}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.phone}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{employees.length}} employees</clr-dg-footer>
+</clr-datagrid>
