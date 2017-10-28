@@ -8,12 +8,14 @@ import {EffectsModule} from '@ngrx/effects';
 import {Users} from './users.effects';
 import {UsersRemove} from './users-remove.effects';
 import {UsersActivate} from './users-activate.effects';
+import {ClarityModule} from 'clarity-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
     Ng2SmartTableModule,
+    ClarityModule.forChild(),
     EffectsModule.forFeature([
       Users.Effects,
       UsersActivate.Effects,
