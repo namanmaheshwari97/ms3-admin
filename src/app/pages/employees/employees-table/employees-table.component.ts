@@ -11,49 +11,20 @@ import {EmployeesRemove} from '../employees-remove.effects';
   styleUrls: ['./employees-table.component.scss']
 })
 export class EmployeesTableComponent implements OnInit {
-  settings = {
-    attr: {
-      class: 'table'
-    },
-    actions: {
-      edit: false
-    },
-    mode: 'external',
-    hideSubHeader: true,
-    columns: {
-      id: {
-        title: 'ID',
-        sort: false,
-        filter: false
-      },
-      email: {
-        title: 'Email',
-        sort: false,
-        filter: false
-      },
-      phoneNumber: {
-        title: 'Phone Number',
-        sort: false,
-        filter: false
-      }
-    }
-  };
-
-  data: Employee[];
   employees: Employee[];
 
   constructor(private _store: Store<any>) {
-    this._store.select(fromRoot.selectEmployeesList).subscribe((list) => {
-      this.data = list;
-      this.employees = list;
-    });
+
+    this._store.select(fromRoot.selectEmployeesList).subscribe((list) => this.employees = list);
   }
 
   ngOnInit() {
+
     this._store.dispatch(new Employees.Request());
   }
 
   onDelete(event) {
+
     this._store.dispatch(new EmployeesRemove.Request(event.data.id));
   }
 }
