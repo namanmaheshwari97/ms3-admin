@@ -1,5 +1,4 @@
 import {Action} from '@ngrx/store';
-import {EmployeesTable} from '../_domains/employees-table';
 import {Employee} from '../_domains/employee';
 
 export const SET = 'Employees.Set';

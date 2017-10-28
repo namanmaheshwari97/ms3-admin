@@ -7,6 +7,7 @@ describe('Alert Actions', () => {
       const action = new AlertActions.SetInfo(message);
 
       expect(action.type).toEqual(AlertActions.SET_INFO);
+      expect(action.payload).toEqual(message);
     });
   });
 
@@ -16,10 +17,11 @@ describe('Alert Actions', () => {
       const action = new AlertActions.SetError(message);
 
       expect(action.type).toEqual(AlertActions.SET_ERROR);
+      expect(action.payload).toEqual(message);
     });
   });
 
-  describe('SetInfo', () => {
+  describe('Clear', () => {
     it('should have type CLEAR', () => {
       const action = new AlertActions.Clear();
 

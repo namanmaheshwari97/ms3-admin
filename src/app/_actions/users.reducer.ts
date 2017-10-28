@@ -25,13 +25,6 @@ export function reducer(state: UsersState = initialState, action: Action): Users
       };
     }
 
-    case UsersActions.REMOVE_ITEM: {
-      return {
-        ...state,
-        list: state.list.filter((item: User) => action.payload !== item.id)
-      };
-    }
-
     default: {
       return state;
     }
