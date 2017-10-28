@@ -1,3 +1,16 @@
 <app-email-blacklist-form (formSubmit)="onCreate($event)"></app-email-blacklist-form>
 <h5>Blacklist Table</h5>
-<ng2-smart-table *ngIf="data" [settings]="settings" [source]="data" (delete)="onDelete($event)"></ng2-smart-table>
+<clr-datagrid>
+  <clr-dg-column>UID</clr-dg-column>
+  <clr-dg-column>E-mail</clr-dg-column>
+
+  <clr-dg-row *ngFor="let email of blacklist">
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onDelete(email)">Deactivate</button>
+    </clr-dg-action-overflow>
+    <clr-dg-cell>{{email.id}}</clr-dg-cell>
+    <clr-dg-cell>{{email.email}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{blacklist.length}} emails</clr-dg-footer>
+</clr-datagrid>

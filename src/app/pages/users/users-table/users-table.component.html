@@ -1,6 +1,19 @@
-<ng2-smart-table *ngIf="data"
-                 [settings]="settings"
-                 [source]="data"
-                 (edit)="onActivate($event)"
-                 (delete)="onDelete($event)">
-</ng2-smart-table>
+<clr-datagrid>
+  <clr-dg-column>UID</clr-dg-column>
+  <clr-dg-column>E-mail</clr-dg-column>
+  <clr-dg-column>Phone Number</clr-dg-column>
+  <clr-dg-column>Status</clr-dg-column>
+
+  <clr-dg-row *ngFor="let user of users">
+    <clr-dg-action-overflow>
+      <button class="action-item" [disabled]="user.active" (click)="onActivate(user)">Activate</button>
+      <button class="action-item" [disabled]="!user.active" (click)="onDelete(user)">Deactivate</button>
+    </clr-dg-action-overflow>
+    <clr-dg-cell>{{user.id}}</clr-dg-cell>
+    <clr-dg-cell>{{user.email}}</clr-dg-cell>
+    <clr-dg-cell>{{user.phone}}</clr-dg-cell>
+    <clr-dg-cell>{{user.active ? 'Active' : 'Inactive'}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+</clr-datagrid>

@@ -15,7 +15,7 @@ export class EmployeesAddComponent implements OnInit {
 
     this.employeeForm = this._fb.group({
       email: ['', Validators.required],
-      phoneNumber: [''],
+      phone: [''],
       password: ['', Validators.required]
     });
   }

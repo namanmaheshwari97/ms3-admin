@@ -9,7 +9,13 @@ import 'rxjs/add/observable/of';
 describe('EmployeesTableComponent', () => {
   class MockStore {
     select(param: any) {
-      return Observable.of('token');
+      return Observable.of([
+        {
+          id: 1,
+          email: 'employee@test.com',
+          phone: '608-123-1234'
+        }
+      ]);
     }
     dispatch(param: any) {
     }
