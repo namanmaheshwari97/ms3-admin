@@ -40,10 +40,12 @@ export class EmployeesTableComponent implements OnInit {
   };
 
   data: Employee[];
+  employees: Employee[];
 
   constructor(private _store: Store<any>) {
     this._store.select(fromRoot.selectEmployeesList).subscribe((list) => {
       this.data = list;
+      this.employees = list;
     });
   }
 
