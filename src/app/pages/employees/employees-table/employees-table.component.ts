@@ -23,8 +23,8 @@ export class EmployeesTableComponent implements OnInit {
     this._store.dispatch(new Employees.Request());
   }
 
-  onDelete(event) {
+  onDelete(employee) {
 
-    this._store.dispatch(new EmployeesRemove.Request(event.data.id));
+    this._store.dispatch(new EmployeesRemove.Request(employee.id));
   }
 }
