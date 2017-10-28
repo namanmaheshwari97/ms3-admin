@@ -3,19 +3,21 @@
   <header class="header-6">
     <div class="branding">
       <a href="..." class="nav-link">
-        <clr-icon shape="vm-bug"></clr-icon>
-        <span class="title">Project Clarity</span>
+        <clr-icon>
+          <img src="assets/logo.svg" alt="" style="width: 100%; height: 100%;">
+        </clr-icon>
+        <span class="title">UW Sublease Admin</span>
       </a>
     </div>
     <div class="header-actions">
       <clr-dropdown>
         <button class="nav-text" clrDropdownTrigger>
-          john.doe@vmware.com
+          {{email}}
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
           <a href="..." clrDropdownItem>Preferences</a>
-          <a href="..." clrDropdownItem>Log out</a>
+          <a href="..." clrDropdownItem (click)="onSignOut()">Log out</a>
         </clr-dropdown-menu>
       </clr-dropdown>
     </div>

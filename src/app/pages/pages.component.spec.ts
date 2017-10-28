@@ -3,8 +3,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PagesComponent } from './pages.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 describe('PagesComponent', () => {
+  class MockStore {
+    select(param: any) {
+      return Observable.of([
+        {
+          token: 'someToken',
+          email: 'admin@email.com'
+        }
+      ]);
+    }
+    dispatch(param: any) {
+    }
+  }
   let component: PagesComponent;
   let fixture: ComponentFixture<PagesComponent>;
 
@@ -13,6 +28,9 @@ describe('PagesComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
         RouterTestingModule
+      ],
+      providers: [
+        {provide: Store, useClass: MockStore}
       ],
       declarations: [ PagesComponent ]
     })
