@@ -3,14 +3,16 @@
   <clr-dg-column>UID</clr-dg-column>
   <clr-dg-column>E-mail</clr-dg-column>
   <clr-dg-column>Phone Number</clr-dg-column>
+  <clr-dg-column>Status</clr-dg-column>
 
   <clr-dg-row *ngFor="let employee of employees">
     <clr-dg-action-overflow>
-      <button class="action-item" (click)="onDelete(employee)">Deactivate</button>
+      <button class="action-item" (click)="onDelete(employee)">Remove</button>
     </clr-dg-action-overflow>
     <clr-dg-cell>{{employee.id}}</clr-dg-cell>
     <clr-dg-cell>{{employee.email}}</clr-dg-cell>
     <clr-dg-cell>{{employee.phone}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.active ? 'Active' : 'Inactive'}}</clr-dg-cell>
   </clr-dg-row>
 
   <clr-dg-footer>{{employees.length}} employees</clr-dg-footer>
