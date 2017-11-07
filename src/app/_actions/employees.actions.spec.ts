@@ -8,7 +8,8 @@ describe('Employees Actions', () => {
         {
           id: 1,
           email: 'admin1@email.com',
-          phone: '608-698-4832'
+          phone: '608-698-4832',
+          active: true
         }
       ];
       const action = new EmployeesActions.Set(employees);

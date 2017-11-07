@@ -2,10 +2,10 @@ import {reducer} from './auth.reducer';
 import * as AuthActions from './auth.actions';
 
 describe('Auth Reducer', () => {
-  const initialState = {token: null, email: null};
+  const initialState = {token: null, user: null};
   const auth = {
     token: 'testToken',
-    email: 'testUser@email.com'
+    user: null
   };
 
   it('should return auth object with payload on Set action', () => {

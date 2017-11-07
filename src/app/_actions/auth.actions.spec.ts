@@ -6,7 +6,7 @@ describe('Auth Actions', () => {
     it('should have type SET_INFO and require a string payload', () => {
       const auth: Auth = {
         token: 'testToken',
-        email: 'test@email.com'
+        user: null
       };
       const action = new AuthActions.Set(auth);
 
