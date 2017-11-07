@@ -20,7 +20,7 @@ export class RestApiService {
 
   send(request: RestApiRequest): Observable<any> {
     if (null != this._token) {
-      request.setHeader('Authorization', this._token);
+      request.setHeader('token', this._token);
     }
 
     const options = request.toRequestOptions();
