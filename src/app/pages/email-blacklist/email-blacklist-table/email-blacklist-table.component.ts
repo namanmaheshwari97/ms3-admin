@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../../../_actions/reducers';
 import {EmailItem} from '../../../_domains/email-item';
-import {EmailBlacklist} from '../email-blacklist.effects';
+import {EmailBlacklistGet} from '../email-blacklist.effects';
 import {EmailBlacklistRemove} from '../email-blacklist-remove.effects';
 import {EmailForm} from '../../../_domains/email-form';
 import {EmailBlacklistAdd} from '../email-blacklist-add.effects';
@@ -22,7 +22,7 @@ export class EmailBlacklistTableComponent implements OnInit {
 
   ngOnInit() {
 
-    this._store.dispatch(new EmailBlacklist.Request());
+    this._store.dispatch(new EmailBlacklistGet.Request());
   }
 
   onCreate(form: EmailForm) {
@@ -32,6 +32,6 @@ export class EmailBlacklistTableComponent implements OnInit {
 
   onDelete(email) {
 
-    this._store.dispatch(new EmailBlacklistRemove.Request(email.id));
+    this._store.dispatch(new EmailBlacklistRemove.Request(email.email));
   }
 }

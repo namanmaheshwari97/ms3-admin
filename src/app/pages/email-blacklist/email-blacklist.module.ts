@@ -6,7 +6,7 @@ import {EmailBlacklistTableComponent} from './email-blacklist-table/email-blackl
 import {EmailBlacklistRoutingModule} from './email-blacklist.routing';
 import {EmailBlacklistFormComponent} from './email-blacklist-form/email-blacklist-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {EmailBlacklist} from './email-blacklist.effects';
+import {EmailBlacklistGet} from './email-blacklist.effects';
 import {EmailBlacklistAdd} from './email-blacklist-add.effects';
 import {EmailBlacklistRemove} from './email-blacklist-remove.effects';
 import {ClarityModule} from 'clarity-angular';
@@ -18,7 +18,7 @@ import {ClarityModule} from 'clarity-angular';
     EmailBlacklistRoutingModule,
     ClarityModule.forChild(),
     EffectsModule.forFeature([
-      EmailBlacklist.Effects,
+      EmailBlacklistGet.Effects,
       EmailBlacklistAdd.Effects,
       EmailBlacklistRemove.Effects
     ])
