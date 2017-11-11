@@ -1,4 +1,4 @@
-import * as EmployeesActions from './email-blacklist.actions';
+import * as EmployeesActions from './employees.actions';
 import {Employee} from '../_domains/employee';
 
 describe('Employees Actions', () => {
