@@ -2,11 +2,11 @@ export const API = {
   AUTH: {
     SIGN_IN: {
       method: 'POST',
-      url: '/auth'
+      url: '/employee-auth'
     },
     SIGN_OUT: {
       method: 'DELETE',
-      url: '/auth'
+      url: '/employee-auth'
     }
   },
   EMPLOYEES: {

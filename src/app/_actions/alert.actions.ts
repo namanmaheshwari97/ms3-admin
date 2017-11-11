@@ -1,8 +1,8 @@
 import {Action} from '@ngrx/store';
 
-export const SET_INFO = 'Alert.Set';
-export const SET_ERROR = 'Alert.Error';
-export const CLEAR = 'Alert.Clear';
+export const SET_INFO = 'Alert.SET_INFO';
+export const SET_ERROR = 'Alert.SET_ERROR';
+export const CLEAR = 'Alert.CLEAR';
 
 export class SetInfo implements Action {
   readonly type = SET_INFO;

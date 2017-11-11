@@ -4,6 +4,7 @@ import {Store} from '@ngrx/store';
 import * as fromRoot from '../_actions/reducers';
 import {Auth} from '../_domains/auth';
 import {SignOut} from '../auth/sign-out.effects';
+import {User} from '../_domains/user';
 
 @Component({
   selector: 'app-pages',
@@ -12,11 +13,11 @@ import {SignOut} from '../auth/sign-out.effects';
 })
 export class PagesComponent implements OnInit {
   public menu = PAGES_MENU_ITEMS;
-  email: string;
+  user: User;
 
   constructor(private _store: Store<any>) {
 
-    this._store.select(fromRoot.selectAuth).subscribe((auth: Auth) => this.email = auth.email);
+    this._store.select(fromRoot.selectAuth).subscribe((auth: Auth) => this.user = auth.user);
   }
 
   ngOnInit() {

@@ -52,7 +52,7 @@ export namespace UsersActivate {
     @Effect() onSuccess$: Observable<Action> = this.actions$
       .ofType(SUCCESS)
       .map((action: Success) => action.payload)
-      .map((response) => new UsersActions.UpdateItem(response));
+      .map((payload) => new UsersActions.UpdateItem(payload));
 
     @Effect() onError$: Observable<Action> = this.actions$
       .ofType(ERROR)
