@@ -11,10 +11,7 @@ const initialState = {
 export function reducer(state: EmailBlacklist = initialState, action: Action): EmailBlacklist {
   switch (action.type) {
     case EmailBlacklistActions.SET: {
-      return {
-        ...state,
-        list: action.payload
-      };
+      return action.payload;
     }
 
     case EmailBlacklistActions.ADD_ITEM: {
@@ -27,7 +24,7 @@ export function reducer(state: EmailBlacklist = initialState, action: Action): E
     case EmailBlacklistActions.REMOVE_ITEM: {
       return {
         ...state,
-        list: state.list.filter((item: EmailItem) => action.payload !== item.id)
+        list: state.list.filter((item: EmailItem) => action.payload !== item.email)
       };
     }
 

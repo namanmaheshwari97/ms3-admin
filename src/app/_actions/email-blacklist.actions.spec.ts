@@ -1,19 +1,22 @@
 import * as EmailBlacklistActions from './email-blacklist.actions';
 import {EmailItem} from '../_domains/email-item';
+import {EmailBlacklist} from '../_domains/email-blacklist';
 
 describe('Email Blacklist Actions', () => {
   describe('Set', () => {
     it('should have type SET and require a email item list payload', () => {
-      const blacklist: EmailItem[] = [
-        {
-          id: 1,
-          email: 'blacklist1@email.com'
-        },
-        {
-          id: 2,
-          email: 'blacklist2@email.com'
-        }
-      ];
+      const blacklist: EmailBlacklist = {
+        list: [
+          {
+            email: 'blacklist1@email.com',
+            createdAt: '2017-10-21T00:00:00'
+          },
+          {
+            email: 'blacklist2@email.com',
+            createdAt: '2017-10-21T00:00:00'
+          }
+        ]
+      };
       const action = new EmailBlacklistActions.Set(blacklist);
 
       expect(action.type).toEqual(EmailBlacklistActions.SET);
@@ -24,8 +27,8 @@ describe('Email Blacklist Actions', () => {
   describe('AddItem', () => {
     it('should have type ADD_ITEM and require a EmailItem payload', () => {
       const email: EmailItem = {
-        id: 1,
-        email: 'blacklist1@email.com'
+        email: 'blacklist1@email.com',
+        createdAt: '2017-10-21T00:00:00'
       };
       const action = new EmailBlacklistActions.AddItem(email);
 
@@ -36,11 +39,11 @@ describe('Email Blacklist Actions', () => {
 
   describe('RemoveItem', () => {
     it('should have type REMOVE_ITEM and require a id number payload', () => {
-      const id = 1;
-      const action = new EmailBlacklistActions.RemoveItem(id);
+      const email = 'blacklist';
+      const action = new EmailBlacklistActions.RemoveItem(email);
 
       expect(action.type).toEqual(EmailBlacklistActions.REMOVE_ITEM);
-      expect(action.payload).toEqual(id);
+      expect(action.payload).toEqual(email);
     });
   });
 });

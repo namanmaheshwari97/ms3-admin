@@ -9,7 +9,7 @@ export const REMOVE_ITEM = 'EmailBlacklist.REMOVE_ITEM';
 export class Set implements Action {
   readonly type = SET;
 
-  constructor(public payload: EmailItem[]) {
+  constructor(public payload: EmailBlacklist) {
   }
 }
 
@@ -23,7 +23,7 @@ export class AddItem implements Action {
 export class RemoveItem implements Action {
   readonly type = REMOVE_ITEM;
 
-  constructor(public payload: number) {
+  constructor(public payload: string) {
   }
 }
 
