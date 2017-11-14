@@ -50,5 +50,11 @@ export const API = {
       method: 'DELETE',
       url: '/blacklist/${id}'
     }
+  },
+  PROPERTIES: {
+    QUERY: {
+      method: 'GET',
+      url: '/properties'
+    }
   }
 };
