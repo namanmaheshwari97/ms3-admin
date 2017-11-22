@@ -22,7 +22,7 @@ export class AddItems implements Action {
 export class RemoveItem implements Action {
   readonly type = REMOVE_ITEM;
 
-  constructor(public payload: number) {
+  constructor(public payload: string) {
   }
 }
 

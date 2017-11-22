@@ -55,6 +55,10 @@ export const API = {
     QUERY: {
       method: 'GET',
       url: '/properties'
+    },
+    DELETE: {
+      method: 'DELETE',
+      url: '/properties/${id}'
     }
   }
 };

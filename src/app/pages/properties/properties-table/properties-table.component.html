@@ -18,5 +18,5 @@
     <clr-dg-cell>{{property.duration + ' months'}}</clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer>{{properties.length}} users</clr-dg-footer>
+  <clr-dg-footer><a *ngIf="cursor" (click)="getMore()">more</a></clr-dg-footer>
 </clr-datagrid>

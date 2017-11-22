@@ -6,6 +6,7 @@ import {PropertiesTableComponent} from './properties-table/properties-table.comp
 import {ClarityModule} from 'clarity-angular';
 import {EffectsModule} from '@ngrx/effects';
 import {PropertiesGet} from './properties.effects';
+import {PropertiesRemove} from './properties-remove.effects';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import {PropertiesGet} from './properties.effects';
     PropertiesRoutingModule,
     ClarityModule.forChild(),
     EffectsModule.forFeature([
-      PropertiesGet.Effects
+      PropertiesGet.Effects,
+      PropertiesRemove.Effects
     ])
   ],
   declarations: [PropertiesComponent, PropertiesTableComponent]
