@@ -1,0 +1,22 @@
+<clr-datagrid>
+  <clr-dg-column>UID</clr-dg-column>
+  <clr-dg-column>Title</clr-dg-column>
+  <clr-dg-column>Address</clr-dg-column>
+  <clr-dg-column>Price</clr-dg-column>
+  <clr-dg-column>Start Date</clr-dg-column>
+  <clr-dg-column>Duration</clr-dg-column>
+
+  <clr-dg-row *ngFor="let property of properties">
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onDelete(property)">Delete</button>
+    </clr-dg-action-overflow>
+    <clr-dg-cell>{{property.id}}</clr-dg-cell>
+    <clr-dg-cell>{{property.title}}</clr-dg-cell>
+    <clr-dg-cell>{{property.address}}</clr-dg-cell>
+    <clr-dg-cell>{{property.price | number: '1.2-2'}}</clr-dg-cell>
+    <clr-dg-cell>{{property.startDate | date: 'yMd'}}</clr-dg-cell>
+    <clr-dg-cell>{{property.duration + ' months'}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer><a *ngIf="cursor" (click)="getMore()">more</a></clr-dg-footer>
+</clr-datagrid>
