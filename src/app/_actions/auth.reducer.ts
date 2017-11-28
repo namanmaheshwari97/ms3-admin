@@ -5,7 +5,7 @@ export type Action = AuthActions.All;
 
 const initialState = {
   token: null,
-  email: null
+  user: null
 };
 
 export function reducer(state: Auth = initialState, action: Action): Auth {

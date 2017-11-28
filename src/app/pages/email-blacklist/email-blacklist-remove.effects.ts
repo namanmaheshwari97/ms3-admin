@@ -28,7 +28,7 @@ export namespace EmailBlacklistRemove {
   export class Success implements Action {
     readonly type = SUCCESS;
 
-    constructor(public payload: number) {
+    constructor(public payload: string) {
     }
   }
 
@@ -46,14 +46,14 @@ export namespace EmailBlacklistRemove {
         request.setPathParams({id: payload});
 
         return this._api.send(request)
-          .map(response => new Success(response.id))
+          .map(response => new Success(response.email))
           .catch(error => Observable.of(new Error()));
       });
 
     @Effect() onSuccess$: Observable<Action> = this.actions$
       .ofType(SUCCESS)
       .map((action: Success) => action.payload)
-      .map((id) => new EmailBlacklistActions.RemoveItem(id));
+      .map((email) => new EmailBlacklistActions.RemoveItem(email));
 
     @Effect() onError$: Observable<Action> = this.actions$
       .ofType(ERROR)

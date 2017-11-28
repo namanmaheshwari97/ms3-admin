@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PagesComponent } from './pages.component';
+import {PagesComponent} from './pages.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {Store} from '@ngrx/store';
@@ -10,13 +10,17 @@ import 'rxjs/add/observable/of';
 describe('PagesComponent', () => {
   class MockStore {
     select(param: any) {
-      return Observable.of([
-        {
-          token: 'someToken',
-          email: 'admin@email.com'
+      return Observable.of({
+        token: 'someToken',
+        user: {
+          id: 1,
+          email: 'admin@email.com',
+          phone: '',
+          active: true
         }
-      ]);
+      });
     }
+
     dispatch(param: any) {
     }
   }
@@ -32,9 +36,9 @@ describe('PagesComponent', () => {
       providers: [
         {provide: Store, useClass: MockStore}
       ],
-      declarations: [ PagesComponent ]
+      declarations: [PagesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

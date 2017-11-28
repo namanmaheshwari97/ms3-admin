@@ -10,11 +10,11 @@ import {API} from '../../core/api-endpoints.constant';
 
 import {RestApiService} from '../../core/rest-api.service';
 import {RestApiRequest} from '../../core/rest-api-request';
-import {EmailItem} from '../../_domains/email-item';
 import * as EmailBlacklistActions from '../../_actions/email-blacklist.actions';
 import * as AlertActions from '../../_actions/alert.actions';
+import {EmailBlacklist} from '../../_domains/email-blacklist';
 
-export namespace EmailBlacklist {
+export namespace EmailBlacklistGet {
   export const REQUEST = 'EmailBlacklistEffects.REQUEST';
   export const SUCCESS = 'EmailBlacklistEffects.SUCCESS';
   export const ERROR = 'EmailBlacklistEffects.ERROR';
@@ -26,7 +26,7 @@ export namespace EmailBlacklist {
   export class Success implements Action {
     readonly type = SUCCESS;
 
-    constructor(public payload: EmailItem[]) {
+    constructor(public payload: EmailBlacklist) {
     }
   }
 

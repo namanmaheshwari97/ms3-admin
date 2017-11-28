@@ -10,7 +10,6 @@ export class VisitorGuard implements CanActivate {
   constructor(private _store: Store<any>, private _router: Router) {
     this._store.select(fromRoot.selectAuthToken)
       .subscribe((token) => {
-        console.log(token);
         this._token = token;
       });
   }
