@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'https://private-acdbb-ms3admin.apiary-mock.com'
+  SERVER_URL: 'https://www.madisons3.com/api'
 };
