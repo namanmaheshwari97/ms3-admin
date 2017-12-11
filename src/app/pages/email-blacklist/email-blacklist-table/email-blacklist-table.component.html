@@ -6,7 +6,7 @@
 
   <clr-dg-row *ngFor="let email of blacklist">
     <clr-dg-action-overflow>
-      <button class="action-item" (click)="onDelete(email)">Deactivate</button>
+      <button class="action-item" (click)="onDelete(email)">Remove</button>
     </clr-dg-action-overflow>
     <clr-dg-cell>{{email.email}}</clr-dg-cell>
     <clr-dg-cell>{{email.createdAt | date }}</clr-dg-cell>

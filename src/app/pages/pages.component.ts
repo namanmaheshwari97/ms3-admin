@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PAGES_MENU_ITEMS} from './pages-menu.constant';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../_actions/reducers';
@@ -17,7 +17,17 @@ export class PagesComponent implements OnInit {
 
   constructor(private _store: Store<any>) {
 
-    this._store.select(fromRoot.selectAuth).subscribe((auth: Auth) => this.user = auth.user);
+    this._store.select(fromRoot.selectAuth).subscribe((auth: Auth) => {
+      this.user = auth.user;
+
+      this.menu = PAGES_MENU_ITEMS.filter((menu) => {
+        if (auth.user.email !== 'admin') {
+          return menu.title !== 'Employees';
+        } else {
+          return true;
+        }
+      });
+    });
   }
 
   ngOnInit() {
